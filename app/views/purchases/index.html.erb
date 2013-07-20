@@ -1,0 +1,133 @@
+<h1>Purchases Table</h1>
+
+<table cellspacing="0" id="purchases_table">
+  <div class="quantity_arrow_box hidden">
+    <p class="quantity_arrow_box_content">Indicates how many units of the Product were purchased</p>
+  </div>
+  <thead>
+    <tr>
+      <td rowspan="2" id="attribute_header" class="border_top_left">Attribute</td>
+      <td id="feature_values_header" colspan="3">Features</td>
+      <td colspan="<%= @purchases.size %>" id="feature_values_header" class="border_top_right">Values</td>
+    </tr>
+
+    <tr id="type_name_header">
+      <td class="features">Entity</br>Type</td>
+      <td class="features">Physical</br>Name</td>
+      <td class="features">Data</br>Type</td>
+      <% @purchases.each do |purchase| %>
+      <td class="values">.</td>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td class="attribute">Month</td>
+      <td>-</td>
+      <td>mm</td>
+      <td>Date(month)</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.month %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute">Day</td>
+      <td>-</td>
+      <td>dd</td>
+      <td>Date(day)</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.day %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute">Year</td>
+      <td>-</td>
+      <td>yyyy</td>
+      <td>Date(year)</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.year %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute">Customer ID</td>
+      <td>Person</td>
+      <td>custid</td>
+      <td>UID Ref</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.customer_id %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute">Product</td>
+      <td>Product</td>
+      <td>sku</td>
+      <td>UID Ref</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.product %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute quantity">Quantity</td>
+      <td></td>
+      <td></td>
+      <td>int</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.quantity %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute">Channel</td>
+      <td><%= image_tag("question_mark.jpg", width: '20', class: 'question_mark') %></td>
+      <td>store</td>
+      <td>UID Ref</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.channel %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td class="attribute">Cashier</td>
+      <td>Person</td>
+      <td>cashr</td>
+      <td>UID Ref</td>
+      <% @purchases.each do |purchase| %>
+      <td><%= purchase.cashier %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td colspan="4"></td>
+      <% @purchases.each do |purchase| %>
+      <td><%= link_to 'Show', purchase %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td colspan="4"></td>
+      <% @purchases.each do |purchase| %>
+      <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td colspan="4"></td>
+      <% @purchases.each do |purchase| %>
+      <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  </tbody>
+
+
+</table>
+
+<br />
+
+<%= link_to 'New Purchase', new_purchase_path %>
+

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  month: MyString
+  day: 1
+  year: 1
+  customer_id: 1
+  product: MyString
+  quantity: 1
+  channel: 1
+  cashier: 1
+
+two:
+  month: MyString
+  day: 1
+  year: 1
+  customer_id: 1
+  product: MyString
+  quantity: 1
+  channel: 1
+  cashier: 1
